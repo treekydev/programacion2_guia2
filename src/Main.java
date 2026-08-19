@@ -212,18 +212,16 @@ public class Main {
         System.out.println("Cual es tu salario?");
         salario = scanner.nextDouble();
 
-        if(edad < 16) {
+        if (edad < 16) {
             System.out.println("No tienes edad para trabajar!");
-        } else if(edad < 19) {
-            System.out.println("Tu salario es de " + salario);
-        } else if(edad < 50) {
-            salario *= 1.05;
-            System.out.println("Tu salario es de " + salario);
-        } else if(edad < 60) {
-            salario *= 1.10;
-            System.out.println("Tu salario es de " + salario);
         } else {
-            salario *= 1.15;
+            if (edad >= 60) {
+                salario *= 1.15;
+            } else if (edad >= 50) {
+                salario *= 1.10;
+            } else if (edad >= 19) {
+                salario *= 1.05;
+            }
             System.out.println("Tu salario es de " + salario);
         }
 
