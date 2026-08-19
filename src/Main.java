@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -8,6 +9,8 @@ public class Main {
         // Incrementar N en 77, reducir su valor a 3, duplicar su valor. Mostrar por pantalla los 
 
         Scanner scanner = new Scanner(System.in);
+        scanner.useLocale(Locale.US);
+
         int option;
         do {
             showMenu();
@@ -28,6 +31,7 @@ public class Main {
                 case 11 -> ejercicio11(scanner);
                 case 12 -> ejercicio12();
                 case 13 -> ejercicio13(scanner);
+                case 14 -> ejercicio14(scanner);
             }
 
             if(option == -1) {
@@ -60,6 +64,7 @@ public class Main {
         System.out.println("11. Ejercicio 11");
         System.out.println("12. Ejercicio 12");
         System.out.println("13. Ejercicio 13");
+        System.out.println("14. Ejercicio 14");
     }
 
     private static void ejercicio1(Scanner scanner) {
@@ -252,5 +257,38 @@ public class Main {
         }
 
         System.out.println("La suma es de " + suma);
+    }
+
+    private static void ejercicio14(Scanner scanner) {
+
+        final int SIZE = 20;
+        double[] temperaturas = new double[SIZE];
+
+        System.out.println("Ingrese 20 temperaturas --- ");
+        for(int i = 0; i < SIZE; i++) {
+            System.out.print("Temperatura " + (i+1) + ": ");
+            temperaturas[i] = scanner.nextDouble();
+        }
+
+        System.out.println("Gracias por ingresar las 20 temperaturas. A continuacion se presentan datos de ellas:");
+
+        double max = temperaturas[0];
+        double min = temperaturas[0];
+        double acumulador = 0;
+
+        for(int i = 0; i < SIZE; i++) {
+            acumulador += temperaturas[i];
+
+            if(max < temperaturas[i]) {
+                max = temperaturas[i];
+            }
+            if(min > temperaturas[i]) {
+                min = temperaturas[i];
+            }
+        }
+        double promedio = acumulador / SIZE;
+        System.out.println("La promedio es de " + promedio + "°C");
+        System.out.println("La temperatura minima fue " + min + "°C");
+        System.out.println("La temperatura maxima fue " + max + "°C");
     }
 }
