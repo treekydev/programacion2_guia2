@@ -38,6 +38,8 @@ public class Main {
                 System.out.println("Ingrese una opcion valida..");
             }
         } while(option != 0);
+
+        scanner.close();
     }
 
     public static int getOption(Scanner scanner, int min, int max) {
