@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +26,7 @@ public class Main {
                 case 9 -> ejercicio9(scanner);
                 case 10 -> ejercicio10(scanner);
                 case 11 -> ejercicio11(scanner);
+                case 12 -> ejercicio12();
             }
 
             if(option == -1) {
@@ -57,6 +57,7 @@ public class Main {
         System.out.println("9. Ejercicio 9");
         System.out.println("10. Ejercicio 10");
         System.out.println("11. Ejercicio 11");
+        System.out.println("12. Ejercicio 12");
     }
 
     private static void ejercicio1(Scanner scanner) {
@@ -213,7 +214,7 @@ public class Main {
         salario = scanner.nextDouble();
 
         if (edad < 16) {
-            System.out.println("No tienes edad para trabajar!");
+            System.out.println(nombre + ", no tienes edad para trabajar!");
         } else {
             if (edad >= 60) {
                 salario *= 1.15;
@@ -222,19 +223,20 @@ public class Main {
             } else if (edad >= 19) {
                 salario *= 1.05;
             }
-            System.out.println("Tu salario es de " + salario);
+            System.out.println(nombre + "! tu salario es de " + salario);
         }
 
     }
 
-    private static void ejercicio12(Scanner scanner) {
-        int [] notas = { 8, 9, 10, 5, 5, 10 };
+    private static void ejercicio12() {
+        double [] notas = { 8, 9, 10, 5, 5, 10 };
 
-        int acumulador = 0;
-        for(int nota : notas) {
+        double acumulador = 0;
+        for(double nota : notas) {
             acumulador += nota;
         }
-        int promedio  = acumulador / notas.length;
+        double promedio  = acumulador / notas.length;
+        System.out.println("La promedio es de " + promedio);
 
     }
 }
