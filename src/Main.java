@@ -27,6 +27,7 @@ public class Main {
                 case 10 -> ejercicio10(scanner);
                 case 11 -> ejercicio11(scanner);
                 case 12 -> ejercicio12();
+                case 13 -> ejercicio13(scanner);
             }
 
             if(option == -1) {
@@ -58,6 +59,7 @@ public class Main {
         System.out.println("10. Ejercicio 10");
         System.out.println("11. Ejercicio 11");
         System.out.println("12. Ejercicio 12");
+        System.out.println("13. Ejercicio 13");
     }
 
     private static void ejercicio1(Scanner scanner) {
@@ -238,5 +240,17 @@ public class Main {
         double promedio  = acumulador / notas.length;
         System.out.println("La promedio es de " + promedio);
 
+    }
+
+    private static void ejercicio13(Scanner scanner) {
+        System.out.print("Ingrese un numero entero, se sumaran todos los numeros naturales hasta el numero que usted indique: ");
+        int number = scanner.nextInt();
+        int suma = 0;
+        // el for necesita la condicion con <= para que tome en cuenta hasta el numero indicado por el usuario
+        for(int i = 1; i <= number; i++) {
+            suma += i;
+        }
+
+        System.out.println("La suma es de " + suma);
     }
 }
